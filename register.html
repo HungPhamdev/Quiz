@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="./css/login.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.8.2/angular-route.min.js"></script>
+    <link rel="shortcut icon" type="image/png" href="./images/Register.png">
+    <title>Register</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <a href="./homepage.html"><img class="img-fluid w-25 mt-5 ml-5" src="./images/quiz.jpg" alt="Image home page"></a>
+            <div style="margin-left: 140px;">
+                <div class="card card-signin my-5" style="width: 450px;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><b><i class="fas fa-sign-in-alt"></i> Đăng Ký</b>
+                        </h5>
+                        <form class="form-signin" name="frmDk">
+                            <div class="form-label-group">
+                                <input type="text" name="user" id="inputUserame" ng-model="student.fullname" ng-minlength="2" ng-maxlength="30" class="form-control" placeholder="Họ và tên" required autofocus>
+                                <label for="inputUserame"><i class="fas fa-user"></i> Vui lòng nhập tên của bạn</label>
+                                <span ng-show="frmDk.user.$invalid">
+                                    <div class="badge badge-danger ml-3">Tên từ 2 đến 30 ký tự </div>
+                                  </span>
+                            </div>
+                            <div class="form-label-group">
+                                <input type="password" name="pass" id="inputPassword" ng-model="student.password" ng-minlength="2" ng-maxlength="30" class="form-control" placeholder="Mật khẩu" required>
+                                <label for="inputPassword"><i class="fas fa-lock"></i> Vui lòng nhập mật khẩu</label>
+                                <span ng-show="frmDk.pass.$invalid">
+                                    <div class="badge badge-danger ml-3">Mật khẩu phải từ 2 đến 30 ký tự </div>
+                                  </span>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="number" name="dt" id="inputPhone" ng-pattern="/(84|0[3|5|7|8|9])+([0-9]{8})\b/" ng-model="student.phone" class="form-control" placeholder="Số điện thoại" required>
+                                <label for="inputPhone"><i class="fas fa-phone-square-alt"></i> Vui lòng nhập số điện thoại</label>
+                                <span ng-show="frmDk.dt.$invalid">
+                                    <div class="badge badge-danger ml-3">Số điện thoại bắt đầu bằng số 0 và có 10 chữ số</div>
+                                  </span>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="email" name="em" id="inputEmail" ng-pattern="/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/" ng-model="student.email" class="form-control" placeholder="Email" required>
+                                <label for="inputEmail"><i class="fas fa-envelope"></i> Vui lòng nhập email</label>
+                                <span ng-show="frmDk.em.$invalid">
+                                    <div class="badge badge-danger ml-3">Email phải có @ và .com </div>
+                                  </span>
+                            </div>
+                            <div class="form-group">
+                                <label class="ml-3 font-weight-bold"><i class="fas fa-venus-mars"></i> Giới tính: </label>
+                                <input type="radio" name="gender" value="true" ng-checked="student.gender=='true'" ng-model="student.gender" required> Nam
+                                <input type="radio" name="gender" value="false" ng-checked="student.gender=='false'" ng-model="student.gender" required> Nữ
+                            </div>
+                            <div class="form-label-group">
+                                <input type="number" name="hp" id="inputHP" ng-model="student.schoolfee" min="200000" ng-pattern="/^[0-9]{1,7}$/" class="form-control" placeholder="Học phí" required>
+                                <label for="inputHP"><i class="fas fa-hand-holding-usd"></i> Vui lòng nhập học phí</label>
+                                <span ng-show="frmDk.hp.$invalid">
+                                    <div class="badge badge-danger ml-3">Học phí tối thiểu là 200.000 VNĐ - tối đa là 9.999.999 VNĐ</div>
+                                  </span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="ml-3 font-weight-bold"><i class="fas fa-book"></i> Khóa học</label>
+                                <select class="form-control" ng-model="student.subject" required>      
+                                        <option ng-repeat="s in subjects" value="{{s.Id}}">{{s.Name}}</option>
+                                    </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="ml-3 font-weight-bold"><i class="fas fa-map-marker-alt"></i> Chi nhánh</label>
+                                <select class="form-control" ng-model="student.cnhanh">
+                                        <option ng-repeat="c in chinhanh" value="{{c.Id}}">{{c.Name}}</option>
+                                    </select>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" ng-click="register()" type="submit"><i class="fas fa-sign-in-alt"></i> Đăng ký</button>
+                            <a class="d-block text-center mt-2 small" href="http://127.0.0.1:5500/homepage.html#!/login"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
+                            <hr class="my-4">
+                            <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Đăng nhập với Google</button>
+                            <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Đăng nhập với Facebook</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+</script>

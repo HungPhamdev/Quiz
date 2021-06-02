@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="./css/login.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.8.2/angular-route.min.js"></script>
+    <link rel="shortcut icon" type="image/png" href="./images/login.jpg">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <a href="./homepage.html"><img class="img-fluid w-25 mt-5 ml-5" src="./images/quiz.jpg" alt="Image home page"></a>
+            <div style="margin-left: 140px;">
+                <div class="card card-signin my-5" style="width: 450px;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center text-white"><i class="fas fa-sign-in-alt"></i> <b>Đăng Nhập</b></h5>
+                        <form class="form-signin" name="frmLogin">
+                            <div class="form-label-group">
+                                <input type="email" name="em" id="inputEmail" ng-model="email" ng-pattern="/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/" class="form-control" placeholder="Địa chỉ email" required autofocus>
+                                <label for="inputEmail">Địa chỉ email</label>
+                                <span ng-show="frmLogin.em.$invalid">
+                                    <div class="badge badge-danger ml-3">Email phải có @ và .com </div>
+                                  </span>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="password" name="pass" id="inputPassword" ng-model="pass" ng-minlength="2" ng-maxlength="30" class="form-control" placeholder="Mật khẩu" required>
+                                <label for="inputPassword">Mật khẩu</label>
+                                <span ng-show="frmLogin.pass.$invalid">
+                                    <div class="badge badge-danger ml-3">Mật khẩu phải từ 2 đến 30 ký tự </div>
+                                  </span>
+                            </div>
+
+                            <div class="custom-control custom-checkbox mb-3">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                <label class="custom-control-label" for="customCheck1">Ghi nhớ mật khẩu</label>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" ng-click="login()"><i class="fas fa-sign-in-alt"></i> Đăng nhập</button>
+                            <div class="row">
+                                <a class="d-block text-center mt-3 small ml-3" href="http://127.0.0.1:5500/homepage.html#!/register"><i class="fas fa-sign-in-alt"></i> Đăng ký</a>
+                                <a class="d-block text-center mt-3 small ml-auto mr-4" href="http://127.0.0.1:5500/homepage.html#!/forgotpassword"><i class="fa fa-exclamation-triangle"></i> Quên mật khẩu</a>
+                            </div>
+                    </div>
+                    <hr class="mb-2 mt-0">
+                    </form>
+                    <form class="form-signin">
+                        <button class="btn btn-lg btn-google btn-block mb-2 text-uppercase" type="submit" ng-click="gg()"><i class="fab fa-google mr-2"></i> Đăng nhập với Google</button>
+                        <button class="btn btn-lg btn-facebook btn-block mb-2 text-uppercase" type="submit" ng-click="fb()"><i class="fab fa-facebook-f mr-2"></i> Đăng nhập với Facebook</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+</script>

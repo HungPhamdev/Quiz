@@ -1,0 +1,3 @@
+<div class="list-group mt-2 bg-success text-center text-warning rounded" ng-repeat="mh in subjects|orderBy:'Name'">
+    <a class="list-group-item bg-success text-warning rounded" ng-click="tongCau()" style="text-decoration: none;" href="#!quiz/{{mh.Id}}/{{mh.Name}}">{{mh.Name|uppercase}}</a>
+</div>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="./css/home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.8.2/angular-route.min.js"></script>
+    <link rel="shortcut icon" type="image/png" href="./images/home.png">
+    <title>Home </title>
+</head>
+
+<body>
+    <div class="container">
+        <nav aria-label="breadcrumb" class="pt-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#!homepage.html" style="text-decoration: none;">Trang chủ</a></li>
+            </ol>
+        </nav>
+        <div class="row mt-4 text-center">
+            <div class="col-6 mb-4" ng-repeat="s in subjects |limitTo:pageSize:start">
+                <div class="card mb-4">
+                    <a style="text-decoration: none;" href="#!homepage/{{s.Id}}/{{s.Name}}">
+                        <img src="./images/logos/{{s.Logo}}" alt="Image">
+                        <div class="card-footer">
+                            <h5 class="card-title m-auto" style="height: 40px;">{{s.Name}}</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="pt-1 row">
+            <div class="col-2"></div>
+            <ul class="pagination col-4">
+                <li class="page-item m-1"><a class="page-link rounded h4 bg-danger" style="width: 100px;" ng-click="first()"><i class="fas fa-hand-point-up "></i> Đầu</a></li>
+                <li class="page-item m-1">
+                    <a class="page-link rounded h4" ng-disbale="start==0" style="width: 120px; font-family: UTM Androgyne;" ng-click="prev()"><i class="fas fa-hand-point-left"> Trước</i></a>
+                </li>
+                <li class="page-item m-1"><a class="page-link rounded h4" style="width: 100px; " ng-disbale="(caccauhoi.length)-1" ng-click="tiep()">Tiếp <i class="fas fa-hand-point-right"></i></a></li>
+                <li class="page-item m-1"><a class="page-link rounded h4" style="width: 100px;" ng-click="cuoi()">Cuối <i class="fas fa-hand-point-down"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js ">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js ">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js ">
+</script>

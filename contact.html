@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="./css/home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="shortcut icon" type="image/png" href="./images/contact.png">
+    <title>Contact</title>
+</head>
+
+<body>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,800,900%7cRaleway:300,400,500,600,700" rel="stylesheet">
+    <div class="container">
+        <nav aria-label="breadcrumb" class="pt-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#!homepage.html" class="text-primary" style="text-decoration: none;">Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Liên hệ</li>
+            </ol>
+        </nav>
+        <div class="container text-center">
+            <section class="contact pt-100 pb-100" id="contact">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-8 mx-auto text-center">
+                            <div class="section-title text-warning mb-100">
+                                <h4>Liên hệ với chúng tôi</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-md-8">
+                            <form action="#" class="contact-form">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <input type="text" placeholder="Nhập họ và tên">
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <input type="email" placeholder="Nhập email">
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <input type="text" placeholder="Nhập môn học">
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <input type="number" placeholder="Nhập số điện thoại">
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <textarea placeholder="Nhập nội dung" cols="30" rows="10"></textarea>
+                                        <input type="submit" value="Gửi tin nhắn">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="single-contact">
+                                <i class="fa fa-map-marker"></i>
+                                <h5>Địa chỉ</h5>
+                                <p>Công viên phần mềm Quang, QTSC Building 1, Trung, P Q.12, Thành phố Hồ Chí Minh, Vietnam</p>
+                            </div>
+                            <div class="single-contact">
+                                <i class="fa fa-phone"></i>
+                                <h5>Điện thoại</h5>
+                                <p>(+84) 900 8916</p>
+                            </div>
+                            <div class="single-contact">
+                                <i class="fa fa-envelope"></i>
+                                <h5>Email</h5>
+                                <p>tracnghiem.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="mt-5 mb-5">
+            <p class="text-success h3 text-center text-uppercase"><i class="fas fa-map-marked-alt"></i> Địa chỉ công ty</p>
+            <iframe src="https://www.google.com/maps/d/embed?mid=10UJaessCfM7bL6f_BBOehgFs1QeMkzrl" width="700" height="480" allowfullscreen q></iframe>
+        </div>
+
+    </div>
+</body>
+
+</html>
+<script src="./db/Subjects.js "></script>
+<script>
+    var app = angular.module("App", []);
+    app.controller("Ctrl", myfunc);
+
+    function myfunc($scope) {
+        $scope.subject = Subjects;
+
+    }
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+</script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/contact.css">
+</head>
+
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,800,900%7cRaleway:300,400,500,600,700" rel="stylesheet">
+
+<body>
+
+</body>
+
+</html>
+
+<!-- <!doctype html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/contact.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,800,900%7cRaleway:300,400,500,600,700" rel="stylesheet">
+    <title>Contact</title>
+</head>
+
+<body>
+    <section class="contact pt-100 pb-100" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 mx-auto text-center">
+                    <div class="section-title mb-100">
+                        <p>get in touch</p>
+                        <h4>contact me</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-right">
+                <div class="col-md-8">
+                    <form action="#" class="contact-form">
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <input type="text" placeholder="name">
+                            </div>
+                            <div class="col-xl-6">
+                                <input type="text" placeholder="email">
+                            </div>
+                            <div class="col-xl-6">
+                                <input type="text" placeholder="subject">
+                            </div>
+                            <div class="col-xl-6">
+                                <input type="text" placeholder="telephone">
+                            </div>
+                            <div class="col-xl-12">
+                                <textarea placeholder="message" cols="30" rows="10"></textarea>
+                                <input type="submit" value="send message">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <div class="single-contact">
+                        <i class="fa fa-map-marker"></i>
+                        <h5>Address</h5>
+                        <p>661 Lefferts, NY 11203, USA</p>
+                    </div>
+                    <div class="single-contact">
+                        <i class="fa fa-phone"></i>
+                        <h5>Phone</h5>
+                        <p>(+1) 517 397 7100</p>
+                    </div>
+                    <div class="single-contact">
+                        <i class="fa fa-envelope"></i>
+                        <h5>Email</h5>
+                        <p>infor@personal.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html> -->
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+</script> -->

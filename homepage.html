@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="./css/home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.8.2/angular-route.min.js"></script>
+    <link rel="shortcut icon" type="image/png" href="./images/home.png">
+    <title>Home Page</title>
+</head>
+
+<body ng-app="App" ng-controller="Ctrl">
+    <div class="container">
+        <header class="row">
+            <div id="slideanh" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators pb-3">
+                    <li data-target="#slideanh" data-slide-to="0" class="active"></li>
+                    <li data-target="#slideanh" data-slide-to="1"></li>
+                    <li data-target="#slideanh" data-slide-to="2"></li>
+                    <li data-target="#slideanh" data-slide-to="3"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="./images/hdlt.png" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="./images/hdhlt.jpg" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="./images/hdfpoly1.jpg" alt="Third slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="./images/hd3.png" alt="Fouth slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#slideanh" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#slideanh" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <!-- ml-auto trong bootstrap 4 để 1 tag trong class .row dạt qua phải-->
+        </header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-warning row" style="font-family: Windsor;">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link text-danger" href="#!homepage"><i class="fa fa-home"></i>  Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!introduction"><i class="fa fa-info-circle"></i>  Giới thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!contact"><i class="fas fa-phone-square-alt"></i>  Liên hệ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!feedback"><i class="fa fa-comments"></i>  Góp ý</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!answer_question"><i class="fa fa-tasks"></i>  Hỏi đáp</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle ml-auto text-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user-circle"></i> Chào {{hoten}}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" ng-hide="gt=='true'" href="#!login"><i class="fas fa-sign-in-alt"></i>  Đăng nhập</a>
+                            <a class="dropdown-item" ng-hide="gt=='true'" href="#!forgotpassword"><i class="fa fa-exclamation-triangle"></i>  Quên mật khẩu</a>
+                            <a class="dropdown-item" ng-hide="gt=='true'" href="#!register"><i class="fa fa-registered"></i>  Đăng ký thành viên</a>
+                            <div ng-hide="gt!='true'" class="dropdown-divider"></div>
+                            <a class="dropdown-item" ng-hide="gt!='true'" href="#!homepage"><i class="fas fa-sign-out-alt"></i>  Đăng xuất</a>
+                            <a class="dropdown-item" ng-hide="gt!='true'" href="#!changepassword"><i class="fa fa-check-circle"></i>  Đổi mật khẩu</a>
+                            <a class="dropdown-item" ng-hide="gt!='true'" ng-click="capnhat()" href="#!modify_account_information"><i class="fa fa-edit"></i>  Cập nhật hồ sơ</a>
+                            <div ng-hide="gt!='true'" class="dropdown-divider"></div>
+                            <a class="dropdown-item" ng-hide="gt!='true'" href="#!list_subjects"><i class="fas fa-list-alt"></i>  Danh sách môn học</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="row">
+            <article class="col-md-8" ng-view>
+                <span ng-if="cham==1"><div class="listmonhoc" ng-include="'home.html'"></div></span>
+                <span ng-if="cham==2"><div class="listmonhoc" ng-include="'list_subjects.html'"></div></span>
+            </article>
+            <aside class="col-md-4 pt-2">
+                <div class="card">
+                    <div class="card-header bg-primary text-uppercase text-white rounded h4">
+                        <i class="fa fa-align-justify"></i> Danh mục môn học
+                    </div>
+                    <div class="card-body">
+                        <div class="listmonhoc" ng-include="'subjects.html'"></div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        <footer class="row">
+            <p class="m-auto text-center"> FPT Polytechnic &copy; 2021. Đã đăng ký bản quyền.</p>
+        </footer>
+    </div>
+</body>
+<script src="./db/Students.js "></script>
+<script>
+    var app = angular.module("App", ["ngRoute"]);
+    // Config
+    app.config(function($routeProvider) {
+            $routeProvider.when("/homepage/:idMH/:tenMH", {
+                templateUrl: "quiz.html",
+                controller: "tnCtrl"
+            }).when("/introduction", {
+                templateUrl: "introduction.html"
+            }).when("/contact", {
+                templateUrl: "contact.html"
+            }).when("/feedback", {
+                templateUrl: "feedback.html"
+            }).when("/answer_question", {
+                templateUrl: "answer_question.html"
+            }).when("/login", {
+                templateUrl: "login.html",
+                controller: "info"
+            }).when("/forgotpassword", {
+                templateUrl: "forgotpassword.html",
+                controller: "info"
+            }).when("/register", {
+                templateUrl: "register.html",
+                controller: "info"
+            }).when("/quiz/:idMH/:tenMH", {
+                templateUrl: "quiz.html",
+                controller: "tnCtrl"
+            }).when("/list_subjects/:idMH/:tenMH", {
+                templateUrl: "quiz.html",
+                controller: "list_subjects"
+            }).when("/changepassword", {
+                templateUrl: "changepassword.html",
+                controller: "info"
+            }).when("/modify_account_information", {
+                templateUrl: "modify_account_information.html",
+                controller: "info"
+            }).otherwise({
+                templateUrl: "home.html"
+            })
+        })
+        // Run
+    app.run(function($rootScope) {
+            $rootScope.$on('$routeChangeStart', function() {
+                $rootScope.loading = true;
+            })
+            $rootScope.$on('$routeChangeSuccess', function() {
+                $rootScope.loading = false;
+            })
+            $rootScope.$on('$routeChangeError', function() {
+                $rootScope.loading = false;
+                alert('Lỗi tải trang');
+            })
+        })
+        // tnCtrl controller
+    app.controller("tnCtrl", function($scope, $http, $interval, $routeParams) {
+            $scope.caccauhoi = [];
+            $scope.idMH = $routeParams.idMH;
+            $scope.tenMH = $routeParams.tenMH;
+            $http.get("/db/Quizs/" + $scope.idMH + ".js").then(function(dt) {
+                $scope.caccauhoi = dt.data;
+            }, function(er) {
+                alert("Lỗi rồi: " + er.statusText);
+            })
+
+            // Quiz
+            $scope.tongDiem = 0;
+            $scope.min = "--";
+            $scope.sec = "--";
+            $scope.countDown = 60;
+            $scope.timeOut = -1;
+            //$scope.timeOut=0;
+            var startQuiz = $interval(function() {
+                var min = parseInt($scope.countDown / 60, 10);
+                var sec = parseInt($scope.countDown % 60, 10);
+                $scope.min = min < 10 ? "0" + min : min;
+                $scope.sec = sec < 10 ? "0" + sec : sec;
+                console.log($scope.countDown--);
+                $scope.timeOut++;
+                //     if($scope.countDown==60){
+                //     alert("End time to lam bai");
+                //     $scope.submit($scope.start);
+                // }
+            }, 1000, $scope.countDown);
+
+            // Dừng interval mỗi khi load trang
+            $scope.$on('$destroy', function() {
+                if (angular.isDefined(startQuiz)) {
+                    $interval.cancel(startQuiz);
+                    startQuiz = undefined;
+                }
+            })
+            $scope.da = {}
+            $scope.dem = 1;
+            $scope.pageSize = 1;
+            $scope.start = 0;
+            $scope.prev = function() {
+                if ($scope.start > 0) {
+                    $scope.start -= $scope.pageSize;
+                    $scope.dem -= $scope.pageSize;
+                }
+            }
+            $scope.tiep = function(index) {
+                if ($scope.start < $scope.caccauhoi.length - $scope.pageSize) {
+                    $scope.start += $scope.pageSize;
+                    $scope.dem++;
+                    if ($scope.da.choice == $scope.caccauhoi[index].AnswerId) {
+                        $scope.tongDiem += $scope.caccauhoi[index].Marks;
+                    }
+                }
+            }
+            $scope.first = function() {
+                $scope.start = 0;
+                $scope.dem = 1;
+            }
+            $scope.last = function() {
+                sotrang = Math.ceil($scope.caccauhoi.length / $scope.pageSize);
+                $scope.start = (sotrang - 1) * $scope.pageSize;
+                $scope.dem = sotrang * $scope.pageSize;
+            }
+
+            $scope.ktNop = false;
+            $scope.gui = function(chiso) {
+                if ($scope.da.choice == $scope.caccauhoi[chiso].AnswerId) {
+                    $scope.tongDiem += $scope.caccauhoi[index].Marks;
+                }
+                var minOut = parseInt($scope.timeOut / 60, 10);
+                var secOut = parseInt($scope.timeOut % 60, 10);
+                $scope.minOut = minOut < 10 ? "0" + minOut : minOut;
+                $scope.secOut = secOut < 10 ? "0" + secOut : secOut;
+                $interval.cancel(startQuiz);
+                $scope.ktNop = true;
+            }
+
+            // home
+            $scope.subjects = [];
+            $http.get("/db/Subjects.js").then(function(dt) {
+                $scope.subjects = dt.data;
+            }, function(er) {
+                alert("Lỗi rồi : " + er.statusText);
+            });
+            $scope.prev = function() {
+                if ($scope.start > 0) {
+                    $scope.start -= $scope.pageSize;
+                    $scope.dem -= $scope.pageSize;
+                }
+            }
+            $scope.next = function() {
+                if ($scope.start < $scope.subjects.length - $scope.pageSize) {
+                    $scope.start += $scope.pageSize;
+                    $scope.dem++;
+                }
+            }
+            $scope.first = function() {
+                $scope.start = 0;
+                $scope.dem = 1;
+            }
+            $scope.cuoi = function() {
+                sotrang = Math.ceil($scope.subjects.length / $scope.pageSize); {
+                    $scope.start = (sotrang - 1) * $scope.pageSize;
+                    $scope.dem = sotrang * $scope.pageSize;
+                }
+            }
+        })
+        // home controller
+        // app.controller("home", function($scope, $http, $routeParams) {
+        //         $scope.cham = 1;
+        //         $scope.subjects = [];
+        //         $http.get("/db/Subjects.js").then(function(dt) {
+        //             $scope.subjects = dt.data;
+        //         }, function(er) {
+        //             alert("Lỗi rồi : " + er.statusText);
+        //         })
+        //         $scope.caccauhoi = [];
+        //         $scope.idMH = $routeParams.idMH;
+        //         $scope.tenMH = $routeParams.tenMH;
+        //         $http.get("/db/Quizs/" + $scope.idMH + ".js").then(function(dt) {
+        //             $scope.caccauhoi = dt.data;
+        //         }, function(er) {
+        //             alert('Lỗi rồi :))');
+        //         })
+        //         $scope.dem = 1;
+        //         $scope.pageSize = 1;
+        //         $scope.start = 0;
+        //         $scope.prev = function() {
+        //             if ($scope.start > 0) {
+        //                 $scope.start -= $scope.pageSize;
+        //                 $scope.dem -= $scope.pageSize;
+        //             }
+        //         }
+        //         $scope.next = function() {
+        //             if ($scope.start < $scope.subjects.length - $scope.pageSize) {
+        //                 $scope.start += $scope.pageSize;
+        //                 $scope.dem++;
+        //             }
+        //         }
+        //         $scope.first = function() {
+        //             $scope.start = 0;
+        //             $scope.dem = 1;
+        //         }
+        //         $scope.last = function() {
+        //             sotrang = Math.ceil($scope.subjects.length / $scope.pageSize); {
+        //                 $scope.start = (sotrang - 1) * $scope.pageSize;
+        //                 $scope.dem = (sotrang - 1) * $scope.pageSize;
+        //             }
+        //         }
+        //         $scope.prev = function() {
+        //             if ($scope.start > 0) {
+        //                 $scope.start -= $scope.pageSize;
+        //                 $scope.dem -= $scope.pageSize;
+        //             }
+        //         }
+        //         $scope.next = function() {
+        //             if ($scope.start < $scope.caccauhoi.length - $scope.pageSize) {
+        //                 $scope.start += $scope.pageSize;
+        //                 $scope.dem++;
+        //             }
+        //         }
+        //         $scope.first = function() {
+        //             $scope.start = 0;
+        //             $scope.dem = 1;
+        //         }
+        //         $scope.last = function() {
+        //             sotrang = Math.ceil($scope.caccauhoi.length / $scope.pageSize);
+        //             $scope.start = (sotrang - 1) * $scope.pageSize;
+        //             $scope.dem = (sotrang - 1) * $scope.pageSize;
+
+    //         }
+    //         $scope.tongCau = function() {
+    //                 sotrang = Math.ceil($scope.caccauhoi.length / $scope.pageSize);
+    //                 $scope.soCau = (sotrang - 1) * $scope.pageSize;
+    //             }
+    //             // socau = Math.ceil($scope.caccauhoi.length / $scope.pageSize);
+    //             // $scope.tongCau = (socau - 1) * $scope.pageSize;
+    //         $scope.tongDiem = 0;
+    //         $scope.test = function(index) {
+    //             alert($scope.ans);
+    //             if ($scope.ans == $scope.caccauhoi[index].AnswerId) {
+    //                 $scope.tongDiem += 1;
+    //             }
+    //         }
+    //     })
+    // list_subjects controller
+    app.controller("list_subjects", function($scope, $http, $routeParams) {
+            $scope.cham = 2;
+            $scope.subjects = [];
+            $http.get("/db/Subjects.js").then(function(dt) {
+                $scope.subjects = dt.data;
+            }, function(er) {
+                alert("Lỗi rồi : " + er.statusText);
+            })
+            $scope.caccauhoi = [];
+            $scope.idMH = $routeParams.idMH;
+            $scope.tenMH = $routeParams.tenMH;
+            $http.get("/db/Quizs/" + $scope.idMH + ".js").then(function(dt) {
+                $scope.caccauhoi = dt.data;
+            }, function(er) {
+                alert('Lỗi rồi :))');
+            })
+            $scope.dem = 1;
+            $scope.pageSize = 1;
+            $scope.start = 0;
+            $scope.prev = function() {
+                if ($scope.start > 0) {
+                    $scope.start -= $scope.pageSize;
+                    $scope.dem -= $scope.pageSize;
+                }
+            }
+            $scope.next = function() {
+                if ($scope.start < $scope.subjects.length - $scope.pageSize) {
+                    $scope.start += $scope.pageSize;
+                    $scope.dem++;
+                }
+            }
+            $scope.first = function() {
+                $scope.start = 0;
+                $scope.dem = 1;
+            }
+            $scope.last = function() {
+                sotrang = Math.ceil($scope.subjects.length / $scope.pageSize); {
+                    $scope.start = (sotrang - 1) * $scope.pageSize;
+                    $scope.dem = (sotrang - 1) * $scope.pageSize;
+                }
+            }
+        })
+        // Info controller
+    app.controller("info", function($scope, $http) {
+            // Register
+            $scope.subjects = [];
+            $http.get("db/Subjects.js").then(function(dt) {
+                $scope.subjects = dt.data
+            }, function(er) {
+                alert("Lỗi rồi: " + er.statusText);
+            })
+            $scope.chinhanh = [];
+            $http.get("db/Chinhanh.js").then(function(dt) {
+                $scope.chinhanh = dt.data
+            }, function(er) {
+                alert("Lỗi rồi: " + er.statusText);
+            })
+            $scope.student = {};
+            $scope.stu = students;
+            console.log($scope.stu);
+            $scope.register = function() {
+                var hoten = $scope.student.fullname;
+                var matkhau = $scope.student.password;
+                var email = $scope.student.email;
+                var phone = $scope.student.phone;
+                var gioitinh = $scope.student.gender;
+                var hocphi = $scope.student.schoolfee;
+                var monhoc = $scope.student.subject;
+                var chinhanh = $scope.student.cnhanh;
+                var sv;
+                var kt = false;
+                if (hoten != null && matkhau != null && phone != null && email != null && gioitinh != null && hocphi != null && monhoc != null && chinhanh != null) {
+                    for (var i = 0; i < students.length; i++) {
+                        sv = students[i];
+                        if (hoten != sv.fullname && email != sv.email && phone != sv.phone) {
+                            kt = true;
+                            break;
+                        } else {
+                            break;
+                        }
+                    }
+                    if (kt) {
+                        $scope.stu.push(angular.copy($scope.student));
+                        alert("Đăng ký thành công!");
+                        console.log($scope.stu);
+                        document.location.replace("http://127.0.0.1:5500/homepage.html#!/login");
+                        // document.location = "login.html";
+                    } else {
+                        alert("Họ tên, email hoặc số điện thoại đã tồn tại! Vui lòng thử tên, email hoặc số điện thoại khác");
+                    }
+                } else {
+                    alert("Vui lòng điền đầy đủ thông tin!");
+                }
+            }
+
+            $scope.login = function() {
+                var u = $scope.email;
+                var p = $scope.pass;
+                var tc = false;
+                var motsv;
+                if (u != null && p != null) {
+                    for (var i = 0; i < students.length; i++) {
+                        motsv = students[i];
+                        if (u == motsv.email && p == motsv.password || u == motsv.email && p == motsv.password) {
+                            tc = true;
+                            break;
+                        }
+                    }
+                    if (tc) {
+                        alert("Đăng nhập thành công!");
+                        sessionStorage.setItem("hoten", motsv.fullname);
+                        sessionStorage.setItem("gt", motsv.gender);
+                        document.location.replace("homepage.html");
+                    } else {
+                        alert("Email hoặc mật khẩu đã nhập không đúng vui lòng kiểm tra lại!");
+                    }
+                } else {
+                    alert("Vui lòng không để trống email hoặc mật khẩu");
+                }
+            }
+            $scope.gg = function() {
+                location.assign("https://accounts.google.com/signin/v2/recoveryidentifier?hl=vi&flowName=GlifWebSignIn&flowEntry=ServiceLogin");
+            }
+            $scope.fb = function() {
+                location.assign("https://www.facebook.com");
+            }
+            var msv;
+            var hoTen = sessionStorage.getItem("hoten");
+            if (hoTen != "") {
+                $scope.hoten = hoTen;
+            }
+            for (var i = 0; i < students.length; i++) {
+                msv = students[i];
+                if ($scope.hoten == msv.fullname) {
+                    $scope.student = angular.copy(msv);
+                    break;
+                }
+            }
+            // Hàm edit
+            $scope.edit = function() {
+                    var name = $scope.student.fullname;
+                    var email = $scope.student.email;
+                    var phone = $scope.student.phone;
+                    var gioitinh = $scope.student.gender;
+                    var hocphi = $scope.student.schoolfee;
+                    var monhoc = $scope.student.subject;
+                    var chinhanh = $scope.student.cnhanh;
+                    var tc = false;
+                    var motsv;
+                    if (name != null && phone != null && email != null && gioitinh != null && hocphi != null && monhoc != null && chinhanh != null) {
+                        for (var i = 0; i < students.length; i++) {
+                            motsv = students[i];
+                            motsv = angular.copy($scope.student);
+                            console.log(motsv);
+                            break;
+                        }
+                        alert("Cập nhật tài khoản thành công!");
+                        // document.location.replace("homepage.html");
+                    } else {
+                        alert("Vui lòng điền đầy đủ thông tin!");
+                    }
+                }
+                // Hàm đổi mk
+            $scope.changepassword = function() {
+                    var email = $scope.student.email;
+                    var psold = $scope.password;
+                    var psnew = $scope.psn;
+                    var psnewrp = $scope.psnrp;
+                    var sv;
+                    var kt = false;
+                    for (var i = 0; i < students.length; i++) {
+                        sv = students[i];
+                        if (sv.email == email && sv.password == psold) {
+                            kt = true;
+                            break;
+                        }
+                    }
+                    if (kt) {
+                        if (psnew != null && psnewrp != null) {
+                            if (psnew == psnewrp) {
+                                sv.password = psnew;
+                                $scope.stu = sv.password;
+                                console.log(sv);
+                                console.log($scope.stu);
+                                alert("Đổi mật khẩu thành công!");
+                                document.location.replace("homepage.html");
+                            } else {
+                                alert("Mật khẩu mới và nhập lại mật khẩu mới không giống nhau. Vui lòng nhập lại!");
+                            }
+                        } else {
+                            alert("Vui lòng điền mật khẩu mới và nhập lại mk mới!");
+                        }
+                    } else {
+                        alert("Emai hoặc mật khẩu không đúng. Vui lòng nhập lại!");
+                    }
+                }
+                // Hàm quên mk
+            $scope.forgot = function() {
+                var svEmail;
+                var mes = false;
+                var em = $scope.email;
+                for (var i = 0; i < students.length; i++) {
+                    svEmail = students[i];
+                    if (svEmail.email == em) {
+                        var x = svEmail.password;
+                        mes = true;
+                    }
+                }
+                if (mes) {
+                    alert("Mật khẩu: " + x);
+                } else {
+                    alert("Email nhập không đúng vui lòng nhập lại");
+                }
+            }
+        })
+        // khi nhấp nút bắt đầu thì thơi gian bắt đầu đếm ngược
+        // Nếu chọn vào 1 câu bất kỳ trong trong 4 đáp án, mà câu được chọn đúng thì điểm sẽ tăng thêm 1, nếu không đúng thì không + 1
+        // Khi nhấp hoàn tất hoặc hết thời gian thì sẽ hiện tổng điểm 
+        // Ctrl controller
+    app.controller("Ctrl", function($scope, $http) {
+        $scope.cacmonhoc = [];
+        $http.get("/db/Subjects.js").then(function(dt) {
+            $scope.subjects = dt.data;
+        }, function(er) {
+            alert("Lỗi rồi : " + er.statusText);
+        })
+        $scope.pageSize = 4;
+        $scope.start = 0;
+        $scope.prev = function() {
+            if ($scope.start > 0)
+                $scope.start -= $scope.pageSize;
+        }
+        $scope.next = function(index) {
+            if ($scope.start < $scope.caccauhoi.length - $scope.pageSize) {
+                $scope.start += $scope.pageSize;
+                $scope.dem++;
+                if ($scope.da.choice == $scope.caccauhoi[index].AnswerId) {
+                    $scope.mark += 1;
+                }
+            }
+        }
+        $scope.first = function() {
+            $scope.start = 0;
+        }
+        $scope.last = function() {
+            sotrang = Math.ceil($scope.subjects.length / $scope.pageSize);
+            $scope.start = (sotrang - 1) * $scope.pageSize;
+        }
+        var hoTen = sessionStorage.getItem("hoten");
+        if (hoTen != "") {
+            $scope.hoten = hoTen;
+        }
+        $scope.gt = false;
+        var gT = sessionStorage.getItem("gt");
+        if (gT != "") {
+            $scope.gt = gT;
+        }
+    })
+</script>
+
+</html>
+<script src="./db/Students.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js ">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js ">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js ">
+</script>

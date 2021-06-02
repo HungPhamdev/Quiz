@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="./css/feedback.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="shortcut icon" type="image/png" href="./images/feedback.png">
+    <title>Feedback</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav aria-label="breadcrumb" class="pt-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#!homepage.html" style="text-decoration: none;">Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Góp ý</li>
+            </ol>
+        </nav>
+        <div class="alert alert-primary text-center">Chúng tôi rất mong sự góp ý từ các bạn để trang web của chúng tôi ngày càng cải tiến và giúp ích nhiều người hơn!!!</div>
+        <div class="card card-signin my-5">
+            <div class="card-body">
+                <form class="sign-in">
+                    <div class="form-label-group">
+                        <select id="luachon" class="form-control">
+                                    <option value="">Chọn môn học</option>
+                             <option value="">Kiểm thử và triển khai</option>
+                             <option value="">Sql Server</option>
+                             <option value="">Điện toán đám mây</option>
+                             <option value="">Lập trình PHP</option>
+                             <option value="">Lập trình ASP.NET</option>
+                             <label for="luachon">Chọn môn học</label>
+                                 </select>
+                    </div>
+                    <div class="form-label-group">
+                        <input type="text" id="inputName" class="form-control" placeholder="Nhập họ và tên" required>
+                        <label for="inputName"><i class="fas fa-user-edit"></i> Họ và tên</label>
+                    </div>
+                    <div class="form-label-group">
+                        <input type="number" id="inputPhoneNumber" class="form-control" placeholder="Nhập số điện thoại" required>
+                        <label for="inputPhoneNumber"><i class="fas fa-phone-square-alt"></i> Số điện thoại</label>
+                    </div>
+                    <div class="form-label-group">
+                        <input type="password" id="inputEmail" class="form-control" placeholder="Nhập địa chỉ email" required>
+                        <label for="inputEmail"><i class="fas fa-envelope"></i> Email</label>
+                    </div>
+                    <div class="form-label-group">
+                        <textarea type="text" class="form-control" id="inputContent" placeholder="Viết nội dung góp ý của bạn tại đây." required></textarea>
+                        <label for="inputContent"><i class="fas fa-comment-alt"></i> Nội dung góp ý</label>
+                    </div>
+                    <button type="submit" class="btn btn-lg btn-primary btn-block text-uppercase"><i class="fas fa-paper-plane"></i> Gửi góp ý</button>
+                </form>
+            </div>
+        </div>
+        <div class="alert alert-success text-center">Cảm ơn bạn đã đóng góp ý kiến. Chúng tôi xin chân thành cảm ơn!</div>
+
+    </div>
+</body>
+
+</html>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+</script>

@@ -1,0 +1,58 @@
+<div ng-if="ktNop==false">
+    <h1 class="text-danger pb-3 pt-3 text-center"><i class="fas fa-question-circle"></i> Câu hỏi trắc nghiệm</h1>
+    <h2 class="text-center text-primary h1">{{min}}:{{sec}}</h2>
+    <div class="card mt-2">
+        <div class="card-header bg-primary text-warning">
+            <i class="fas fa-list-alt"></i> {{tenMH}}
+        </div>
+        <div ng-repeat="ch in caccauhoi|limitTo:pageSize:start">
+            <div class="card-body bg-success text-white">
+                <p>{{dem}}. {{ch.Text}}</p>
+                <hr class="bg-white">
+                <div ng-repeat="pa in ch.Answers">
+                    <input type="radio" name="a" value="{{pa.Id}}" ng-model="da.choice"> {{pa.Text}}
+                </div>
+            </div>
+            <div class="card-footer bg-secondary text-white">
+                <span class="badge rounded-pill bg-primary"><i class="fas fa-marker"></i> Điểm: {{tongDiem}} / {{caccauhoi.length}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="pt-2 row">
+        <div class="col-2"></div>
+        <ul class="pagination col-4">
+            <li class="page-item m-1"><a class="page-link rounded h4" style="width: 100px;" ng-click="first()"><i class="fas fa-hand-point-up "></i> Đầu</a></li>
+            <li class="page-item m-1">
+                <a class="page-link rounded h4" font-family: UTM Androgyne; ng-disbale="start==0" style="width: 120px;" ng-click="prev()"><i class="fas fa-hand-point-left"> Trước</i></a>
+            </li>
+            <li class="page-item m-1"><a class="page-link rounded h4" style="width: 100px;" ng-disbale="(caccauhoi.length)-1" ng-click="tiep(start)">Tiếp <i class="fas fa-hand-point-right"></i></a></li>
+            <li class="page-item m-1"><a class="page-link rounded h4" style="width: 100px;" ng-click="last()">Cuối <i class="fas fa-hand-point-down"></i></a></li>
+        </ul>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-lg h1 btn-warning text-danger text-center text-uppercase font-weight-bold" ng-click="gui(start)">Hoàn tất</button>
+    </div>
+</div>
+<div ng-if="ktNop==true">
+    <h1 class="text-danger pb-3 pt-3 text-center"><i class="fas fa-poll"></i> Thành quả sau {{minOut}}:{{secOut}} cố gắng</h1>
+    <div class="card mt-2">
+        <div class="card-header bg-primary h1 text-warning text-center">
+            <i class="fas fa-clipboard-list"></i> KẾT QUẢ
+        </div>
+        <div ng-repeat="ch in caccauhoi|limitTo:pageSize:start">
+            <div class="card-body bg-success text-white">
+                <div class="row">
+                    <div class="col-5 h3">
+                        <i class="fas fa-book-open"></i>Môn: <br><i class="fas fa-clock"></i> Thời gian thi: <br><i class="fas fa-mountain"></i> Tổng số câu hỏi: <br><i class="fas fa-marker"></i> Điểm:
+                    </div>
+                    <div class="col-7 h3">
+                        {{tenMH}} <br> {{minOut}}:{{secOut}} <br> {{caccauhoi.length}} <br> {{tongDiem}} / {{caccauhoi.length}}
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-secondary text-white text-center">
+                <a href="http://127.0.0.1:5500/homepage.html#!/homepage" class="btn btn-danger text-white text-uppercase font-weight-bold"><i class="fas fa-undo-alt"></i> Quay lại</a>
+            </div>
+        </div>
+    </div>
+</div>
