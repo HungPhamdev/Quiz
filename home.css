@@ -1,0 +1,93 @@
+header {
+    position: relative;
+    height: 300px;
+}
+
+nav .nav-link:hover {
+    background-color: yellow;
+    cursor: pointer;
+}
+
+nav aside .card-body a {
+    text-decoration: none;
+    color: black;
+}
+
+aside .card-body a:hover {
+    text-decoration: none;
+    color: red;
+    background-color: chartreuse;
+    cursor: pointer;
+}
+
+.dropdown-menu a:hover {
+    color: blue;
+    background-color: orange;
+    cursor: pointer;
+}
+
+footer {
+    height: 50px;
+    background-color: skyblue;
+}
+
+.row>article {
+    min-height: 300px;
+    background-color: mintcream;
+}
+
+.row>aside {
+    min-height: 300px;
+    background-color: cyan;
+}
+
+.shopping-mall {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    font-variant: small-caps;
+}
+
+.shopping-mall>h1 {
+    font-family: Impact;
+    font-size: 50px;
+    color: white;
+    letter-spacing: 0.3px;
+    text-shadow: 2px 2px 2px black;
+    border-bottom: 1px dotted grey;
+    padding-bottom: 0;
+    margin: 0;
+}
+
+.shopping-mall>h4 {
+    margin-top: 5px;
+    letter-spacing: 0.5px;
+    color: gray;
+    text-shadow: 2px 2px 2px black;
+}
+
+.card-header {
+    color: orangered;
+    font-weight: bold;
+}
+
+article .card:hover {
+    background-color: white;
+}
+
+article,
+footer {
+    font-family: UTM Androgyne;
+}
+
+aside {
+    font-family: Bahnschrift SemiBold;
+}
+
+nav {
+    font-family: Windsor;
+}
+
+article .card-footer:hover {
+    background-color: lightsalmon;
+}
